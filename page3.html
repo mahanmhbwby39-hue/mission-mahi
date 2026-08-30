@@ -12,10 +12,6 @@
 
 <style>
 
-/* =====================================
-   RESET
-===================================== */
-
 * {
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
@@ -130,7 +126,7 @@ body {
 
     width: min(88%, 720px);
 
-    min-height: 230px;
+    height: 230px;
 
     left: 50%;
 
@@ -312,6 +308,8 @@ body {
     text-shadow:
         0 3px 18px
         rgba(0,0,0,.38);
+
+    min-height: 55px;
 }
 
 .cursor {
@@ -346,7 +344,7 @@ body {
 
     left: 50%;
 
-    top: 53%;
+    top: 43%;
 
     transform:
         translateX(-50%);
@@ -369,7 +367,7 @@ body {
         cubic-bezier(.2,.8,.2,1)
         forwards;
 
-    animation-delay: 5.8s;
+    animation-delay: 8.5s;
 }
 
 @keyframes moviesAppear {
@@ -559,7 +557,7 @@ body {
 
         width: 90%;
 
-        min-height: 220px;
+        height: 220px;
 
         padding:
             25px 20px;
@@ -576,7 +574,7 @@ body {
 
     .movies {
 
-        top: 51%;
+        top: 42%;
 
         width: 90%;
 
@@ -655,9 +653,7 @@ body {
 <div class="movies">
 
 
-    <!-- =================================
-         OBSESSION
-    ================================== -->
+    <!-- Obsession -->
 
     <div
         class="movie"
@@ -674,9 +670,7 @@ body {
     </div>
 
 
-    <!-- =================================
-         STAR WARS
-    ================================== -->
+    <!-- Star Wars Episode I -->
 
     <div
         class="movie"
@@ -693,9 +687,7 @@ body {
     </div>
 
 
-    <!-- =================================
-         GOOD OMENS
-    ================================== -->
+    <!-- Good Omens -->
 
     <div
         class="movie"
@@ -712,9 +704,7 @@ body {
     </div>
 
 
-    <!-- =================================
-         TITANIC
-    ================================== -->
+    <!-- Titanic -->
 
     <div
         class="movie"
@@ -736,62 +726,114 @@ body {
 
 <script>
 
-
 /* =====================================
-   متن تایپ
+   متن‌های مرحله‌ای
 ===================================== */
 
-const text =
-    "وای ماهی چقدر خوبه که جفتمون یه چیز میخوایم🥺❤️\nحالا انتخاب کن چه فیلمی ببینیم\nاین بار شوخی نیست😂😂\nتو آزادی هر فیلمی میخوای انتخاب کنی❤️";
+const messages = [
+
+    "وای ماهی چقدر خوبه که جفتمون یه چیز میخوایم🥺❤️",
+
+    "حالا انتخاب کن چه فیلمی ببینیم",
+
+    "این بار شوخی نیست😂😂",
+
+    "تو آزادی هر فیلمی میخوای انتخاب کنی❤️"
+
+];
 
 
 const typingText =
     document.getElementById("typingText");
 
-let index = 0;
+
+let messageIndex = 0;
+
+let letterIndex = 0;
 
 
-function typeWriter() {
+/* =====================================
+   تایپ متن
+===================================== */
 
-    if (index < text.length) {
+function typeMessage() {
 
-        const char =
-            text.charAt(index);
+    const currentMessage =
+        messages[messageIndex];
 
-        if (char === "\n") {
 
-            typingText.appendChild(
-                document.createElement("br")
-            );
+    if (
+        letterIndex <
+        currentMessage.length
+    ) {
 
-        } else {
+        typingText.textContent +=
+            currentMessage.charAt(letterIndex);
 
-            typingText.appendChild(
-                document.createTextNode(char)
-            );
-
-        }
-
-        index++;
+        letterIndex++;
 
         setTimeout(
-            typeWriter,
+            typeMessage,
             55
+        );
+
+        return;
+    }
+
+
+    /*
+     * اگر هنوز جمله دیگری مانده:
+     *
+     * کمی مکث
+     * پاک شدن متن
+     * شروع جمله بعدی
+     */
+
+    if (
+        messageIndex <
+        messages.length - 1
+    ) {
+
+        setTimeout(
+            function() {
+
+                typingText.textContent = "";
+
+                letterIndex = 0;
+
+                messageIndex++;
+
+                typeMessage();
+
+            },
+            1100
         );
 
     }
 
+    /*
+     * اگر به آخرین جمله رسیدیم:
+     *
+     * هیچ کاری نمی‌کنیم.
+     *
+     * متن همان‌جا می‌ماند.
+     */
+
 }
 
 
+/* =====================================
+   شروع تایپ
+===================================== */
+
 setTimeout(
-    typeWriter,
+    typeMessage,
     2700
 );
 
 
 /* =====================================
-   کلیک روی همه فیلم‌ها
+   کلیک روی فیلم‌ها
 ===================================== */
 
 const movies =
