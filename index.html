@@ -6,15 +6,11 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <title>برای ماهی ❤️</title>
 
 <style>
-
-/* =====================================
-   RESET
-===================================== */
 
 * {
     box-sizing: border-box;
@@ -25,12 +21,16 @@ html,
 body {
     width: 100%;
     height: 100%;
+    min-width: 100%;
+    min-height: 100%;
     margin: 0;
+    padding: 0;
 }
 
 body {
     overflow: hidden;
-    position: relative;
+    position: fixed;
+    inset: 0;
 
     font-family:
         Tahoma,
@@ -58,6 +58,9 @@ body {
     position: fixed;
     inset: 0;
 
+    width: 100%;
+    height: 100%;
+
     z-index: 100;
 
     background:
@@ -77,9 +80,7 @@ body {
 
 .loading {
     color: white;
-
     font-size: 24px;
-
     letter-spacing: 6px;
 
     animation:
@@ -111,285 +112,18 @@ body {
 
 
 /* =====================================
-   حباب‌ها
-===================================== */
-
-.bubbles {
-    position: absolute;
-    inset: 0;
-
-    pointer-events: none;
-
-    z-index: 5;
-}
-
-.bubble {
-    position: absolute;
-
-    width: 105px;
-    height: 105px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle at 30% 25%,
-            rgba(255,255,255,.85),
-            rgba(255,255,255,.18) 35%,
-            rgba(255,255,255,.06) 70%,
-            rgba(255,255,255,.22)
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.55);
-
-    backdrop-filter:
-        blur(8px);
-
-    -webkit-backdrop-filter:
-        blur(8px);
-
-    box-shadow:
-        inset 8px 8px 20px
-        rgba(255,255,255,.30),
-
-        inset -10px -10px 20px
-        rgba(255,255,255,.08),
-
-        0 10px 35px
-        rgba(0,0,0,.18);
-
-    opacity: 0;
-
-    animation-duration: 1.7s;
-
-    animation-fill-mode: forwards;
-
-    animation-timing-function:
-        cubic-bezier(.2,.8,.2,1);
-}
-
-.b1 {
-    left: 8%;
-    top: 8%;
-    animation-name: bubble1;
-}
-
-.b2 {
-    left: 25%;
-    top: 3%;
-    animation-name: bubble2;
-}
-
-.b3 {
-    right: 8%;
-    top: 8%;
-    animation-name: bubble3;
-}
-
-.b4 {
-    right: 25%;
-    top: 3%;
-    animation-name: bubble4;
-}
-
-.b5 {
-    left: 5%;
-    top: 38%;
-    animation-name: bubble5;
-}
-
-.b6 {
-    right: 5%;
-    top: 38%;
-    animation-name: bubble6;
-}
-
-.b7 {
-    left: 20%;
-    top: 31%;
-    animation-name: bubble7;
-}
-
-.b8 {
-    right: 20%;
-    top: 31%;
-    animation-name: bubble8;
-}
-
-
-/* =====================================
-   انیمیشن حباب‌ها
-===================================== */
-
-@keyframes bubble1 {
-
-    from {
-        transform:
-            translate(-150px,-100px)
-            scale(.2);
-
-        opacity: 0;
-    }
-
-    to {
-        transform:
-            translate(0,0)
-            scale(1);
-
-        opacity: 1;
-    }
-}
-
-@keyframes bubble2 {
-
-    from {
-        transform:
-            translate(-100px,-150px)
-            scale(.2);
-
-        opacity: 0;
-    }
-
-    to {
-        transform:
-            translate(0,0)
-            scale(1);
-
-        opacity: 1;
-    }
-}
-
-@keyframes bubble3 {
-
-    from {
-        transform:
-            translate(150px,-100px)
-            scale(.2);
-
-        opacity: 0;
-    }
-
-    to {
-        transform:
-            translate(0,0)
-            scale(1);
-
-        opacity: 1;
-    }
-}
-
-@keyframes bubble4 {
-
-    from {
-        transform:
-            translate(100px,-150px)
-            scale(.2);
-
-        opacity: 0;
-    }
-
-    to {
-        transform:
-            translate(0,0)
-            scale(1);
-
-        opacity: 1;
-    }
-}
-
-@keyframes bubble5 {
-
-    from {
-        transform:
-            translate(-170px,50px)
-            scale(.2);
-
-        opacity: 0;
-    }
-
-    to {
-        transform:
-            translate(0,0)
-            scale(1);
-
-        opacity: 1;
-    }
-}
-
-@keyframes bubble6 {
-
-    from {
-        transform:
-            translate(170px,50px)
-            scale(.2);
-
-        opacity: 0;
-    }
-
-    to {
-        transform:
-            translate(0,0)
-            scale(1);
-
-        opacity: 1;
-    }
-}
-
-@keyframes bubble7 {
-
-    from {
-        transform:
-            translate(-100px,100px)
-            scale(.2);
-
-        opacity: 0;
-    }
-
-    to {
-        transform:
-            translate(0,0)
-            scale(1);
-
-        opacity: 1;
-    }
-}
-
-@keyframes bubble8 {
-
-    from {
-        transform:
-            translate(100px,100px)
-            scale(.2);
-
-        opacity: 0;
-    }
-
-    to {
-        transform:
-            translate(0,0)
-            scale(1);
-
-        opacity: 1;
-    }
-}
-
-
-/* =====================================
-   پنل اصلی
+   کادر اصلی
 ===================================== */
 
 .main-card {
 
-    position: absolute;
+    position: fixed;
 
-    width: min(86%,700px);
+    width: min(86%, 700px);
 
     min-height: 230px;
 
     left: 50%;
-
     top: 16%;
 
     transform:
@@ -428,7 +162,6 @@ body {
     display: flex;
 
     justify-content: center;
-
     align-items: center;
 
     text-align: center;
@@ -476,11 +209,9 @@ body {
     position: absolute;
 
     width: 180%;
-
     height: 50%;
 
     left: -40%;
-
     top: -20%;
 
     transform:
@@ -553,6 +284,8 @@ body {
 
     z-index: 2;
 
+    width: 100%;
+
     color: white;
 
     font-size:
@@ -567,6 +300,8 @@ body {
     text-shadow:
         0 3px 18px
         rgba(0,0,0,.38);
+
+    overflow-wrap: break-word;
 }
 
 .cursor {
@@ -597,12 +332,14 @@ body {
 
 .buttons {
 
-    position: absolute;
+    position: fixed;
 
     left: 0;
     right: 0;
 
     bottom: 17%;
+
+    width: 100%;
 
     height: 100px;
 
@@ -867,6 +604,8 @@ body {
     .buttons {
 
         bottom: 15%;
+
+        height: 100px;
     }
 
     .yes {
@@ -902,13 +641,6 @@ body {
 
         font-size: 13px;
     }
-
-    .bubble {
-
-        width: 80px;
-
-        height: 80px;
-    }
 }
 
 </style>
@@ -933,32 +665,7 @@ body {
 
 
 <!-- =====================================
-     حباب‌ها
-===================================== -->
-
-<div class="bubbles">
-
-    <span class="bubble b1"></span>
-
-    <span class="bubble b2"></span>
-
-    <span class="bubble b3"></span>
-
-    <span class="bubble b4"></span>
-
-    <span class="bubble b5"></span>
-
-    <span class="bubble b6"></span>
-
-    <span class="bubble b7"></span>
-
-    <span class="bubble b8"></span>
-
-</div>
-
-
-<!-- =====================================
-     پنل
+     پنل اصلی
 ===================================== -->
 
 <div class="main-card">
@@ -982,9 +689,6 @@ body {
 
 <div class="buttons">
 
-
-    <!-- آره -->
-
     <button
         id="yesBtn"
         class="btn yes">
@@ -994,14 +698,9 @@ body {
     </button>
 
 
-    <!-- نه -->
-
     <div
         id="noWrapper"
         class="no-wrapper">
-
-
-        <!-- ابر -->
 
         <div
             id="speech"
@@ -1013,8 +712,6 @@ body {
 
         </div>
 
-
-        <!-- دکمه نه -->
 
         <button
             id="noBtn"
@@ -1058,7 +755,9 @@ function typeWriter() {
             typeWriter,
             75
         );
+
     }
+
 }
 
 
@@ -1137,42 +836,41 @@ let messageIndex = 0;
 
 
 /* =====================================
-   موقعیت اولیه
-===================================== */
-
-let originalX = null;
-
-let originalY = null;
-
-
-const MOVE_RANGE_X = 90;
-
-const MOVE_RANGE_Y = 55;
-
-
-/* =====================================
-   حرکت دکمه نه
+   حرکت خیلی بیشتر دکمه نه
 ===================================== */
 
 function moveNoButton() {
 
+    const buttons =
+        document.querySelector(".buttons");
 
-    /* ذخیره موقعیت اولیه فقط یک بار */
+    const areaWidth =
+        buttons.clientWidth;
 
-    if (originalX === null) {
+    const areaHeight =
+        buttons.clientHeight;
 
-        const rect =
-            noWrapper.getBoundingClientRect();
+    /*
+     * محدوده فرار
+     * خیلی بزرگ‌تر از نسخه قبلی
+     */
 
-        originalX =
-            rect.left;
+    const MOVE_RANGE_X =
+        Math.min(
+            260,
+            areaWidth * 0.38
+        );
 
-        originalY =
-            rect.top;
-    }
+    const MOVE_RANGE_Y =
+        Math.min(
+            110,
+            areaHeight * 1.2
+        );
 
 
-    /* موقعیت تصادفی */
+    /*
+     * موقعیت تصادفی
+     */
 
     const randomX =
         (Math.random() * 2 - 1)
@@ -1183,48 +881,34 @@ function moveNoButton() {
         * MOVE_RANGE_Y;
 
 
-    /* تغییر موقعیت */
-
-    noWrapper.style.position =
-        "fixed";
-
-    noWrapper.style.left =
-        (originalX + randomX) + "px";
-
-    noWrapper.style.top =
-        (originalY + randomY) + "px";
-
-    noWrapper.style.right =
-        "auto";
-
-    noWrapper.style.bottom =
-        "auto";
-
-    noWrapper.style.transform =
-        "translate(0,0)";
-
-
-    /* انیمیشن کوچک */
+    /*
+     * فرار سریع
+     */
 
     noWrapper.animate(
 
         [
             {
                 transform:
-                    "translate(0,0) scale(.85)"
+                    "translateY(-50%) scale(.8)"
             },
 
             {
                 transform:
-                    "translate(0,0) scale(1)"
+                    `translateY(-50%)
+                     translate(${randomX}px, ${randomY}px)
+                     scale(1)`
             }
+
         ],
 
         {
-            duration: 280,
+            duration: 260,
 
             easing:
-                "ease-out"
+                "cubic-bezier(.2,.8,.2,1)",
+
+            fill: "forwards"
         }
 
     );
@@ -1238,20 +922,10 @@ function moveNoButton() {
 
 function showMessage() {
 
-
-    /* نمایش دیالوگ فعلی */
-
     speechText.textContent =
         messages[messageIndex];
 
-
-    /* رفتن به دیالوگ بعدی */
-
     messageIndex++;
-
-
-    /* بعد از آخرین دیالوگ
-       برگشت به اول */
 
     if (
         messageIndex >=
@@ -1261,9 +935,6 @@ function showMessage() {
         messageIndex = 0;
 
     }
-
-
-    /* اجرای دوباره انیمیشن ابر */
 
     speech.classList.remove(
         "show"
@@ -1288,35 +959,12 @@ noBtn.addEventListener(
 
         event.preventDefault();
 
-        /*
-         * هر کلیک دقیقاً:
-         *
-         * 1. یک دیالوگ جدید
-         * 2. همان حرکت قبلی
-         *
-         */
-
         showMessage();
 
         moveNoButton();
 
     }
 );
-
-
-/* =====================================
-   جلوگیری از دوبار اجرا شدن
-   روی موبایل
-===================================== */
-
-/*
-   عمداً touchstart نداریم.
-
-   رویداد click روی موبایل
-   خودش اجرا می‌شود و بنابراین
-   هر لمس فقط یک دیالوگ نشان می‌دهد.
-*/
-
 
 </script>
 
