@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>انتخاب خوب ❤️</title>
+
+<style>
+
+/* =====================================
+   RESET
+===================================== */
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    font-family:
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.22),
+            rgba(0,0,0,.22)
+        ),
+        url("background.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    color: white;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+/* =====================================
+   صفحه
+===================================== */
+
+.page {
+
+    width: 100%;
+
+    max-width: 850px;
+
+    min-height: 100vh;
+
+    padding:
+        35px 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 22px;
+}
+
+
+/* =====================================
+   کادر اصلی
+===================================== */
+
+.poster-card {
+
+    width: min(88vw, 650px);
+
+    height: min(62vh, 560px);
+
+    min-height: 360px;
+
+    padding: 14px;
+
+    border-radius: 32px;
+
+    background:
+        rgba(255,255,255,.13);
+
+    border:
+        1px solid
+        rgba(255,255,255,.5);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+
+        0 25px 70px
+        rgba(0,0,0,.35),
+
+        inset 0 1px 0
+        rgba(255,255,255,.55),
+
+        inset 0 -1px 0
+        rgba(255,255,255,.15);
+
+    position: relative;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transform:
+        translateY(30px)
+        scale(.92);
+
+    animation:
+        cardAppear
+        1s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+}
+
+
+/* درخشش کادر */
+
+.poster-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.16),
+            transparent 35%,
+            transparent 65%,
+            rgba(255,255,255,.08)
+        );
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+
+/* خط نور */
+
+.poster-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 160%;
+
+    height: 45%;
+
+    left: -30%;
+
+    top: -20%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.16),
+            transparent
+        );
+
+    transform:
+        rotate(-12deg);
+
+    animation:
+        shine 6s infinite;
+
+    pointer-events: none;
+
+    z-index: 3;
+}
+
+
+@keyframes shine {
+
+    0% {
+        transform:
+            translateX(-40%)
+            rotate(-12deg);
+    }
+
+    50% {
+        transform:
+            translateX(40%)
+            rotate(-12deg);
+    }
+
+    100% {
+        transform:
+            translateX(40%)
+            rotate(-12deg);
+    }
+}
+
+
+@keyframes cardAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(.92);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =====================================
+   پوستر
+===================================== */
+
+.poster {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    border-radius: 23px;
+
+    display: block;
+
+    box-shadow:
+        0 10px 35px
+        rgba(0,0,0,.35);
+}
+
+
+/* =====================================
+   متن تایپی
+===================================== */
+
+.message {
+
+    min-height: 105px;
+
+    width: min(90vw, 700px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding:
+        10px 20px;
+}
+
+
+.typing {
+
+    font-size:
+        clamp(20px, 4vw, 31px);
+
+    line-height: 1.9;
+
+    font-weight: bold;
+
+    color: white;
+
+    text-shadow:
+        0 3px 18px
+        rgba(0,0,0,.5);
+}
+
+
+.cursor {
+
+    display: inline-block;
+
+    margin-right: 4px;
+
+    animation:
+        blink .7s infinite;
+}
+
+
+@keyframes blink {
+
+    0%,50% {
+        opacity: 1;
+    }
+
+    51%,100% {
+        opacity: 0;
+    }
+}
+
+
+/* =====================================
+   دکمه‌ها
+===================================== */
+
+.buttons {
+
+    width: min(88vw, 650px);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+    align-items: center;
+}
+
+
+.btn {
+
+    width: 100%;
+
+    max-width: 520px;
+
+    min-height: 62px;
+
+    border-radius: 20px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.4);
+
+    font-family: inherit;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+
+    backdrop-filter:
+        blur(15px);
+
+    -webkit-backdrop-filter:
+        blur(15px);
+
+    color: white;
+
+    box-shadow:
+        0 12px 30px
+        rgba(0,0,0,.25);
+}
+
+
+.btn:active {
+
+    transform:
+        scale(.96);
+}
+
+
+/* =====================================
+   دکمه تایید
+===================================== */
+
+.confirm {
+
+    background:
+        rgba(55,190,105,.45);
+
+    border:
+        1px solid
+        rgba(150,255,185,.65);
+
+    box-shadow:
+
+        0 12px 35px
+        rgba(0,0,0,.25),
+
+        inset 0 1px 0
+        rgba(255,255,255,.35);
+}
+
+
+.confirm:hover {
+
+    transform:
+        translateY(-3px)
+        scale(1.02);
+
+    background:
+        rgba(55,210,110,.58);
+
+    box-shadow:
+        0 18px 40px
+        rgba(0,0,0,.32);
+}
+
+
+/* =====================================
+   دکمه برگشت
+===================================== */
+
+.back {
+
+    background:
+        rgba(255,255,255,.15);
+
+    border:
+        1px solid
+        rgba(255,255,255,.4);
+}
+
+
+.back:hover {
+
+    transform:
+        translateY(-3px)
+        scale(1.02);
+
+    background:
+        rgba(255,255,255,.23);
+}
+
+
+/* =====================================
+   توضیح پایین
+===================================== */
+
+.note {
+
+    width: min(90vw, 650px);
+
+    text-align: center;
+
+    font-size: 14px;
+
+    line-height: 2;
+
+    color:
+        rgba(255,255,255,.9);
+
+    text-shadow:
+        0 2px 12px
+        rgba(0,0,0,.5);
+
+    margin-top: 2px;
+
+    opacity: 0;
+
+    animation:
+        noteAppear
+        1s
+        ease
+        forwards;
+
+    animation-delay: 2s;
+}
+
+
+@keyframes noteAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =====================================
+   موبایل
+===================================== */
+
+@media(max-width:600px) {
+
+    .page {
+
+        padding:
+            20px 15px;
+
+        gap: 14px;
+    }
+
+
+    .poster-card {
+
+        width: 90vw;
+
+        height: 52vh;
+
+        min-height: 300px;
+
+        padding: 10px;
+
+        border-radius: 25px;
+    }
+
+
+    .poster {
+
+        border-radius: 18px;
+    }
+
+
+    .message {
+
+        min-height: 95px;
+
+        padding:
+            5px 12px;
+    }
+
+
+    .typing {
+
+        font-size: 20px;
+
+        line-height: 1.9;
+    }
+
+
+    .buttons {
+
+        width: 90vw;
+
+        gap: 11px;
+    }
+
+
+    .btn {
+
+        min-height: 56px;
+
+        font-size: 16px;
+
+        border-radius: 17px;
+    }
+
+
+    .note {
+
+        font-size: 12px;
+
+        line-height: 1.9;
+
+        width: 90vw;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+    <!-- =================================
+         پوستر
+    ================================== -->
+
+    <div class="poster-card">
+
+        <img
+            src="starwars.jpg"
+            alt="Star Wars"
+            class="poster">
+
+    </div>
+
+
+    <!-- =================================
+         متن
+    ================================== -->
+
+    <div class="message">
+
+        <div class="typing">
+
+            <span id="typingText"></span>
+
+            <span class="cursor">|</span>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================
+         دکمه‌ها
+    ================================== -->
+
+    <div class="buttons">
+
+
+        <button
+            class="btn confirm"
+            id="confirmBtn">
+
+            تایید فیلم ✅
+
+        </button>
+
+
+        <button
+            class="btn back"
+            id="backBtn">
+
+            بازگشت به منوی انتخاب فیلم
+
+        </button>
+
+
+    </div>
+
+
+    <!-- =================================
+         متن پایین
+    ================================== -->
+
+    <div class="note">
+
+        اگه فکر میکنی اشتباهی شده،
+        برگرد منوی قبل و گزینه مد نظرت
+        انتخاب کن ❤️✅
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+
+/* =====================================
+   تایپ متن
+===================================== */
+
+const text =
+    "واوو چه انتخاب خوبی! خوشحالم که جنگ ستارگان انتخاب کردی..❤️";
+
+const typingText =
+    document.getElementById("typingText");
+
+let index = 0;
+
+
+function typeWriter() {
+
+    if (index < text.length) {
+
+        typingText.textContent +=
+            text.charAt(index);
+
+        index++;
+
+        setTimeout(
+            typeWriter,
+            65
+        );
+
+    }
+
+}
+
+
+setTimeout(
+    typeWriter,
+    1000
+);
+
+
+/* =====================================
+   تایید فیلم
+===================================== */
+
+document
+    .getElementById("confirmBtn")
+    .addEventListener(
+        "click",
+        function() {
+
+            this.style.transform =
+                "scale(.94)";
+
+            setTimeout(
+                function() {
+
+                    /*
+                       صفحه بعدی
+                    */
+
+                    window.location.href =
+                        "page5.html";
+
+                },
+                250
+            );
+
+        }
+    );
+
+
+/* =====================================
+   بازگشت
+===================================== */
+
+document
+    .getElementById("backBtn")
+    .addEventListener(
+        "click",
+        function() {
+
+            this.style.transform =
+                "scale(.94)";
+
+            setTimeout(
+                function() {
+
+                    /*
+                       بازگشت به منوی
+                       انتخاب فیلم
+                    */
+
+                    window.location.href =
+                        "page3.html";
+
+                },
+                250
+            );
+
+        }
+    );
+
+
+</script>
+
+
+</body>
+
+</html>
