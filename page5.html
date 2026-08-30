@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>برای ماهی ❤️</title>
+
+<style>
+
+/* =====================================
+   RESET
+===================================== */
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    font-family:
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.22),
+            rgba(0,0,0,.22)
+        ),
+        url("background.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    color: white;
+}
+
+
+/* =====================================
+   صفحه اصلی
+===================================== */
+
+.page {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding:
+        30px 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 20px;
+}
+
+
+/* =====================================
+   کادر اصلی
+===================================== */
+
+.main-card {
+
+    width: min(88vw, 720px);
+
+    min-height: 260px;
+
+    padding:
+        40px 35px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,.13);
+
+    border:
+        1px solid
+        rgba(255,255,255,.5);
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+
+    box-shadow:
+
+        0 25px 70px
+        rgba(0,0,0,.3),
+
+        inset 0 1px 0
+        rgba(255,255,255,.55),
+
+        inset 0 -1px 0
+        rgba(255,255,255,.15);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transform:
+        translateY(30px)
+        scale(.92);
+
+    animation:
+        cardAppear
+        1s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+}
+
+
+/* درخشش */
+
+.main-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.15),
+            transparent 35%,
+            transparent 65%,
+            rgba(255,255,255,.08)
+        );
+
+    pointer-events: none;
+}
+
+
+.main-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 170%;
+
+    height: 45%;
+
+    left: -35%;
+
+    top: -20%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.15),
+            transparent
+        );
+
+    transform:
+        rotate(-12deg);
+
+    animation:
+        shine 6s infinite;
+
+    pointer-events: none;
+}
+
+
+@keyframes shine {
+
+    0% {
+        transform:
+            translateX(-40%)
+            rotate(-12deg);
+    }
+
+    50% {
+        transform:
+            translateX(40%)
+            rotate(-12deg);
+    }
+
+    100% {
+        transform:
+            translateX(40%)
+            rotate(-12deg);
+    }
+}
+
+
+@keyframes cardAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(.92);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =====================================
+   متن
+===================================== */
+
+.message {
+
+    position: relative;
+
+    z-index: 2;
+
+    font-size:
+        clamp(21px,4vw,32px);
+
+    line-height: 2;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    text-shadow:
+        0 3px 18px
+        rgba(0,0,0,.45);
+}
+
+
+.cursor {
+
+    display: inline-block;
+
+    margin-right: 4px;
+
+    animation:
+        blink .7s infinite;
+}
+
+
+@keyframes blink {
+
+    0%,50% {
+        opacity: 1;
+    }
+
+    51%,100% {
+        opacity: 0;
+    }
+}
+
+
+/* =====================================
+   دکمه لغو
+===================================== */
+
+.cancel-btn {
+
+    width:
+        min(88vw, 500px);
+
+    min-height: 62px;
+
+    border-radius: 20px;
+
+    border:
+        1px solid
+        rgba(255,150,150,.55);
+
+    background:
+        rgba(210,45,55,.45);
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 19px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    backdrop-filter:
+        blur(15px);
+
+    -webkit-backdrop-filter:
+        blur(15px);
+
+    box-shadow:
+        0 12px 35px
+        rgba(0,0,0,.28);
+
+    transition:
+        .25s ease;
+
+    opacity: 0;
+
+    animation:
+        buttonAppear
+        1s
+        ease
+        forwards;
+
+    animation-delay: 1.5s;
+}
+
+
+.cancel-btn:hover {
+
+    transform:
+        translateY(-3px)
+        scale(1.02);
+
+    background:
+        rgba(230,50,60,.58);
+}
+
+
+.cancel-btn:active {
+
+    transform:
+        scale(.95);
+}
+
+
+@keyframes buttonAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =====================================
+   متن پایین
+===================================== */
+
+.footer-text {
+
+    font-size: 13px;
+
+    text-align: center;
+
+    color:
+        rgba(255,255,255,.85);
+
+    text-shadow:
+        0 2px 10px
+        rgba(0,0,0,.5);
+}
+
+
+/* =====================================
+   OVERLAY
+===================================== */
+
+.overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 500;
+
+    background:
+        rgba(0,0,0,.72);
+
+    backdrop-filter:
+        blur(10px);
+
+    -webkit-backdrop-filter:
+        blur(10px);
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+}
+
+
+.overlay.active {
+
+    display: flex;
+}
+
+
+/* =====================================
+   پنل لغو
+===================================== */
+
+.cancel-panel {
+
+    width:
+        min(92vw, 650px);
+
+    max-height: 90vh;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    background:
+        rgba(30,30,30,.82);
+
+    border:
+        1px solid
+        rgba(255,255,255,.3);
+
+    backdrop-filter:
+        blur(22px);
+
+    -webkit-backdrop-filter:
+        blur(22px);
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,.55);
+
+    padding:
+        25px;
+
+    text-align: center;
+
+    animation:
+        panelOpen
+        .45s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+
+@keyframes panelOpen {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(.8)
+            translateY(30px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
+
+
+/* =====================================
+   عنوان تب
+===================================== */
+
+.cancel-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 18px;
+}
+
+
+.cancel-title {
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================
+   خروج
+===================================== */
+
+.exit-btn {
+
+    flex-shrink: 0;
+
+    border: none;
+
+    border-radius: 13px;
+
+    padding:
+        10px 17px;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    color: white;
+
+    background:
+        rgba(255,255,255,.1);
+
+    border:
+        1px solid
+        rgba(255,255,255,.25);
+
+    cursor: not-allowed;
+
+    opacity: .5;
+
+    transition: .25s ease;
+}
+
+
+.exit-btn.ready {
+
+    cursor: pointer;
+
+    opacity: 1;
+
+    background:
+        rgba(255,255,255,.2);
+}
+
+
+/* =====================================
+   تایمر
+===================================== */
+
+.timer {
+
+    margin-bottom: 15px;
+
+    font-size: 15px;
+
+    color:
+        rgba(255,255,255,.8);
+}
+
+
+.timer-number {
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    margin-right: 5px;
+}
+
+
+/* =====================================
+   کادر تبلیغ
+===================================== */
+
+.ad-box {
+
+    width: 100%;
+
+    height: 300px;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    background:
+        rgba(0,0,0,.35);
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
+    position: relative;
+
+    margin-bottom: 15px;
+}
+
+
+.ad-box img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* لایه روی تبلیغ */
+
+.ad-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: center;
+
+    padding-bottom: 15px;
+
+    background:
+        linear-gradient(
+            transparent 55%,
+            rgba(0,0,0,.55)
+        );
+
+    pointer-events: none;
+}
+
+
+.ad-label {
+
+    padding:
+        7px 15px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(0,0,0,.55);
+
+    font-size: 12px;
+
+    color: white;
+}
+
+
+/* =====================================
+   حالت نهایی
+===================================== */
+
+.final-screen {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 10000;
+
+    background:
+        rgba(0,0,0,.94);
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 25px;
+}
+
+
+.final-screen.show {
+
+    display: flex;
+
+    animation:
+        finalAppear
+        .7s
+        ease
+        forwards;
+}
+
+
+.final-text {
+
+    font-size:
+        clamp(28px,7vw,55px);
+
+    font-weight: bold;
+
+    line-height: 1.8;
+
+    color: white;
+
+    text-shadow:
+        0 0 25px
+        rgba(255,255,255,.25);
+
+    animation:
+        finalPulse
+        1s
+        infinite alternate;
+}
+
+
+@keyframes finalAppear {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes finalPulse {
+
+    from {
+        transform: scale(.97);
+    }
+
+    to {
+        transform: scale(1.03);
+    }
+}
+
+
+/* =====================================
+   باران ایموجی
+===================================== */
+
+#emojiRain {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 11000;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+
+.falling-emoji {
+
+    position: absolute;
+
+    top: -60px;
+
+    user-select: none;
+
+    animation:
+        emojiFall
+        2s
+        linear
+        forwards;
+}
+
+
+@keyframes emojiFall {
+
+    0% {
+
+        transform:
+            translateY(-60px)
+            rotate(0deg);
+
+        opacity: 1;
+    }
+
+    100% {
+
+        transform:
+            translateY(115vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =====================================
+   موبایل
+===================================== */
+
+@media(max-width:600px) {
+
+    .page {
+
+        padding:
+            20px 15px;
+
+        gap: 15px;
+    }
+
+
+    .main-card {
+
+        min-height: 240px;
+
+        padding:
+            30px 20px;
+
+        border-radius: 25px;
+    }
+
+
+    .message {
+
+        font-size: 20px;
+
+        line-height: 1.9;
+    }
+
+
+    .cancel-btn {
+
+        min-height: 56px;
+
+        font-size: 17px;
+    }
+
+
+    .cancel-panel {
+
+        padding:
+            18px;
+
+        border-radius: 23px;
+    }
+
+
+    .cancel-title {
+
+        font-size: 14px;
+    }
+
+
+    .exit-btn {
+
+        padding:
+            9px 12px;
+
+        font-size: 12px;
+    }
+
+
+    .ad-box {
+
+        height: 230px;
+    }
+
+
+    .footer-text {
+
+        font-size: 11px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================
+     صفحه اصلی
+===================================== -->
+
+<div class="page">
+
+
+    <div class="main-card">
+
+        <div class="message">
+
+            <span id="typingText"></span>
+
+            <span class="cursor">|</span>
+
+        </div>
+
+    </div>
+
+
+    <button
+        id="cancelBtn"
+        class="cancel-btn">
+
+        لغو
+
+    </button>
+
+
+    <div class="footer-text">
+
+        ⚡ انتخاب ثبت شد ⚡
+
+    </div>
+
+</div>
+
+
+<!-- =====================================
+     پنل لغو
+===================================== -->
+
+<div
+    id="overlay"
+    class="overlay">
+
+
+    <div class="cancel-panel">
+
+
+        <!-- عنوان -->
+
+        <div class="cancel-header">
+
+
+            <div class="cancel-title">
+
+                برای لغو عملیات ابتدا باید
+                یک تبلیغ ببینید 😂
+
+            </div>
+
+
+            <button
+                id="exitBtn"
+                class="exit-btn"
+                disabled>
+
+                خروج 😂
+
+            </button>
+
+        </div>
+
+
+        <!-- تایمر -->
+
+        <div class="timer">
+
+            زمان باقی‌مانده:
+
+            <span
+                id="timerNumber"
+                class="timer-number">
+
+                30
+
+            </span>
+
+            ثانیه
+
+        </div>
+
+
+        <!-- تبلیغ -->
+
+        <div class="ad-box">
+
+            <img
+                src="captivity.jpg"
+                alt="تبلیغ">
+
+            <div class="ad-overlay">
+
+                <div class="ad-label">
+
+                    تبلیغ ویژه 😂
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!-- =====================================
+     صفحه نهایی
+===================================== -->
+
+<div
+    id="finalScreen"
+    class="final-screen">
+
+    <div class="final-text">
+
+        این عملیات قابل لغو نیست !🤡
+
+    </div>
+
+</div>
+
+
+<!-- =====================================
+     باران ایموجی
+===================================== -->
+
+<div id="emojiRain"></div>
+
+
+<script>
+
+
+/* =====================================
+   تایپ متن اصلی
+===================================== */
+
+const mainText =
+    "مرسی بابت انتخاب خوبت ❤️ پس فرداشب 2026/08/31 ساعت 23:00 باهم این فیلم شاهکارو میبینیم ⚡⚡";
+
+const typingText =
+    document.getElementById("typingText");
+
+let letterIndex = 0;
+
+
+function typeWriter() {
+
+    if (
+        letterIndex <
+        mainText.length
+    ) {
+
+        typingText.textContent +=
+            mainText.charAt(letterIndex);
+
+        letterIndex++;
+
+        setTimeout(
+            typeWriter,
+            65
+        );
+
+    }
+
+}
+
+
+setTimeout(
+    typeWriter,
+    900
+);
+
+
+/* =====================================
+   عناصر
+===================================== */
+
+const cancelBtn =
+    document.getElementById("cancelBtn");
+
+const overlay =
+    document.getElementById("overlay");
+
+const exitBtn =
+    document.getElementById("exitBtn");
+
+const timerNumber =
+    document.getElementById("timerNumber");
+
+const finalScreen =
+    document.getElementById("finalScreen");
+
+const emojiRain =
+    document.getElementById("emojiRain");
+
+
+/* =====================================
+   باز کردن پنل لغو
+===================================== */
+
+cancelBtn.addEventListener(
+    "click",
+    function() {
+
+        overlay.classList.add(
+            "active"
+        );
+
+        startCountdown();
+
+    }
+);
+
+
+/* =====================================
+   تایمر 30 ثانیه
+===================================== */
+
+let countdownStarted = false;
+
+
+function startCountdown() {
+
+    if (countdownStarted) {
+        return;
+    }
+
+    countdownStarted = true;
+
+    let timeLeft = 30;
+
+    timerNumber.textContent =
+        timeLeft;
+
+
+    const timer =
+        setInterval(
+            function() {
+
+                timeLeft--;
+
+                timerNumber.textContent =
+                    timeLeft;
+
+
+                if (timeLeft <= 0) {
+
+                    clearInterval(timer);
+
+                    unlockExit();
+
+                }
+
+            },
+            1000
+        );
+
+}
+
+
+/* =====================================
+   فعال شدن خروج
+===================================== */
+
+function unlockExit() {
+
+    exitBtn.disabled = false;
+
+    exitBtn.classList.add(
+        "ready"
+    );
+
+    timerNumber.textContent =
+        "0";
+
+    /*
+       بعد از تمام شدن تایمر،
+       باران ایموجی شروع می‌شود.
+    */
+
+    setTimeout(
+        startEmojiRain,
+        500
+    );
+
+
+    /*
+       چند ثانیه بعد صفحه نهایی
+    */
+
+    setTimeout(
+        showFinalScreen,
+        3000
+    );
+
+}
+
+
+/* =====================================
+   خروج
+===================================== */
+
+exitBtn.addEventListener(
+    "click",
+    function() {
+
+        /*
+           عمداً هیچ کاری نمی‌کند.
+           حتی بعد از 30 ثانیه هم
+           گزینه خروج فقط ظاهراً فعال می‌شود 😂
+        */
+
+        return;
+
+    }
+);
+
+
+/* =====================================
+   باران 😂🤡
+===================================== */
+
+function startEmojiRain() {
+
+    const start =
+        Date.now();
+
+    function createEmoji() {
+
+        if (
+            Date.now() - start >=
+            2500
+        ) {
+
+            return;
+        }
+
+
+        const emoji =
+            document.createElement("span");
+
+        emoji.className =
+            "falling-emoji";
+
+
+        const emojis = [
+            "😂",
+            "🤡"
+        ];
+
+
+        emoji.textContent =
+            emojis[
+                Math.floor(
+                    Math.random() *
+                    emojis.length
+                )
+            ];
+
+
+        emoji.style.left =
+            Math.random() * 100 +
+            "vw";
+
+
+        emoji.style.fontSize =
+            (
+                24 +
+                Math.random() * 28
+            ) +
+            "px";
+
+
+        emoji.style.animationDuration =
+            (
+                1.2 +
+                Math.random() * .9
+            ) +
+            "s";
+
+
+        emojiRain.appendChild(
+            emoji
+        );
+
+
+        setTimeout(
+            function() {
+
+                emoji.remove();
+
+            },
+            2500
+        );
+
+
+        setTimeout(
+            createEmoji,
+            45
+        );
+
+    }
+
+
+    createEmoji();
+
+}
+
+
+/* =====================================
+   صفحه نهایی
+===================================== */
+
+function showFinalScreen() {
+
+    finalScreen.classList.add(
+        "show"
+    );
+
+}
+
+
+/* =====================================
+   جلوگیری از اسکرول
+===================================== */
+
+document.body.addEventListener(
+    "touchmove",
+    function(event) {
+
+        if (
+            overlay.classList.contains(
+                "active"
+            )
+        ) {
+
+            event.preventDefault();
+
+        }
+
+    },
+    {
+        passive: false
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
