@@ -794,7 +794,99 @@ document
 
 </script>
 
+<!-- بارش 😂🤡 هنگام ورود -->
+<div id="emojiRain"></div>
 
+<style>
+#emojiRain {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.falling-emoji {
+    position: absolute;
+    top: -60px;
+    font-size: 28px;
+    animation: emojiFall 1s linear forwards;
+    user-select: none;
+}
+
+@keyframes emojiFall {
+    0% {
+        transform: translateY(-60px) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+</style>
+
+<script>
+(function () {
+
+    const container =
+        document.getElementById("emojiRain");
+
+    const emojis = ["😂", "🤡"];
+
+    const startTime = Date.now();
+
+    function createEmoji() {
+
+        if (Date.now() - startTime >= 1000) {
+            return;
+        }
+
+        const emoji =
+            document.createElement("span");
+
+        emoji.className =
+            "falling-emoji";
+
+        emoji.textContent =
+            emojis[
+                Math.floor(
+                    Math.random() * emojis.length
+                )
+            ];
+
+        emoji.style.left =
+            Math.random() * 100 + "vw";
+
+        emoji.style.fontSize =
+            (22 + Math.random() * 22) + "px";
+
+        emoji.style.animationDuration =
+            (0.7 + Math.random() * 0.5) + "s";
+
+        container.appendChild(emoji);
+
+        setTimeout(
+            () => emoji.remove(),
+            1500
+        );
+
+        setTimeout(
+            createEmoji,
+            35
+        );
+    }
+
+    createEmoji();
+
+    setTimeout(function () {
+        container.innerHTML = "";
+    }, 1500);
+
+})();
+</script>
+      
 </body>
 
 </html>
